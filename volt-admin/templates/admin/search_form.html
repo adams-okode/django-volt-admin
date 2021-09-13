@@ -1,0 +1,49 @@
+{% load i18n static %}
+{% if cl.search_fields %}
+<div id="toolbar"><form id="changelist-search" method="get">
+<div><!-- DIV needed for valid HTML -->
+<div class="input-group input-group-merge search-bar">
+    <span class="input-group-text" id="topbar-addon"
+        ><svg
+        class="icon icon-xs"
+        x-description="Heroicon name: solid/search"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        aria-hidden="true"
+        >
+        <path
+            fill-rule="evenodd"
+            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+            clip-rule="evenodd"
+        ></path>
+        </svg> </span
+    ><input
+        type="text" 
+        size="40" 
+        name="{{ search_var }}" 
+        value="{{ cl.query }}" 
+        id="searchbar"
+        autofocus
+        class="form-control"
+        id="topbarInputIconLeft"
+        placeholder="Search"
+        aria-label="Search"
+        aria-describedby="topbar-addon"
+    />
+    <input type="submit" class="btn btn-outline-primary" value="{% translate 'Search' %}">
+</div>
+
+{% if show_result_count %}
+    <span class="small quiet">{% blocktranslate count counter=cl.result_count %}{{ counter }} result{% plural %}{{ counter }} results{% endblocktranslate %} (<a href="?{% if cl.is_popup %}{{ is_popup_var }}=1{% endif %}">{% if cl.show_full_result_count %}{% blocktranslate with full_result_count=cl.full_result_count %}{{ full_result_count }} total{% endblocktranslate %}{% else %}{% translate "Show all" %}{% endif %}</a>)</span>
+{% endif %}
+{% for pair in cl.params.items %}
+    {% if pair.0 != search_var %}<input type="hidden" name="{{ pair.0 }}" value="{{ pair.1 }}">{% endif %}
+{% endfor %}
+</div>
+{% if cl.search_help_text %}
+<br class="clear">
+<div class="help">{{ cl.search_help_text }}</div>
+{% endif %}
+</form></div>
+{% endif %}

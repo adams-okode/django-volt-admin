@@ -1,0 +1,28 @@
+{% load admin_list %}
+{% load volt_tags %}
+{% load i18n %}
+<nav aria-label="">
+  <ul class="pagination pagination-sm my-2 justify-content-end">
+    {% if pagination_required %}
+    {% for i in page_range %}
+        <li class="page-item">
+            {% volt_paginator_number cl i %}
+        </li>
+    {% endfor %}
+    {% endif %}
+    {% if show_all_url %}
+    <li class="page-item">
+        <a href="{{ show_all_url }}" class="page-link showall">
+            {% translate 'Show all' %}
+        </a>
+    </li>
+    {% endif %}
+    <li class="page-item disabled">
+        <a class="page-link">
+         {{ cl.result_count }} {% if cl.result_count == 1 %}{{ cl.opts.verbose_name }}{% else %}{{ cl.opts.verbose_name_plural }}{% endif %}
+        </a>
+    </li>
+ </ul>
+</nav>
+
+{% if cl.formset and cl.result_count %}<input type="submit" name="_save" class="default" value="{% translate 'Save' %}">{% endif %}
