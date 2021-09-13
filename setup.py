@@ -1,9 +1,6 @@
 from setuptools import setup, find_packages
 
 extras_require = {
-    'test': [
-        'cryptography',
-    ],
     'lint': [
         'pep8',
     ],
@@ -16,16 +13,17 @@ extras_require = {
 
 extras_require['dev'] = (
     extras_require['dev'] +
-    extras_require['test'] +
     extras_require['lint']
 )
 
 setup(
-    name='django-mpesa',
-    version='2.0.6',
+    name='django-volt-admin',
+    version='1.0.2',
     description='Django admin implementation of volt admin dashboard',
-    long_description=open('README.rst', 'r', encoding='utf-8').read(),
-    url='https://www.vorane.com/',
+    long_description=open('README.md', 'r', encoding='utf-8').read(),
+    long_description_content_type="text/markdown",
+    include_package_data=True,
+    url='https://github.com/adams-okode/django-volt-admin',
     author='Adams Okode',
     author_email='adamsokode@gmail.com',
     license='MIT',
@@ -48,5 +46,4 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
     ]
-
 )

@@ -3,22 +3,34 @@ Django Volt is a django admin customization for https://github.com/themesberg/vo
 
 Samples
 ----------
-![alt text](./docs/login.png)
+![alt text](https://raw.githubusercontent.com/adams-okode/django-volt-admin/main/docs/login.png)
 
-![alt text](./docs/dashboard.png)
+![alt text](https://raw.githubusercontent.com/adams-okode/django-volt-admin/main/docs/dashboard.png)
 
 Quick start
 -----------
-
-1. Add "volt" to your INSTALLED_APPS setting like this::
-    ```python
-    INSTALLED_APPS = [
-        ...
-        'volt',
-    ]
+1. Install 
+    ```bash
+    pip install django-volt-admin
     ```
 
-2. Include Templates from the volt admin customization
+2. Add "volt" to your INSTALLED_APPS setting like this::
+    ```python
+    INSTALLED_APPS = [
+        'volt',
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        ...
+       
+    ]
+    ```
+    ensure that the app is declared before django admin
+
+3. Include Templates from the volt admin customization
     ```python
     TEMPLATES = [
         {
