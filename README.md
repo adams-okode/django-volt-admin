@@ -1,6 +1,4 @@
-#Django Volt Admin
-
-
+# Django Volt Admin
 Django Volt is a django admin customization for https://github.com/themesberg/volt-bootstrap-5-dashboard
 
 
@@ -8,15 +6,16 @@ Quick start
 -----------
 
 1. Add "volt" to your INSTALLED_APPS setting like this::
-
+    ```python
     INSTALLED_APPS = [
         ...
         'volt',
     ]
+    ```
 
 
 2. Include Templaates from the volt admin customization
-
+    ```python
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -34,6 +33,7 @@ Quick start
             },
         },
     ]
+    ```
 
 3. Start the development server and visit http://127.0.0.1:8000/admin/
    to view (you'll need the Admin app enabled).
