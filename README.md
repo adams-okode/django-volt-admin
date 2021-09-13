@@ -1,11 +1,8 @@
-=====
-Django Volt Admin
-=====
+#Django Volt Admin
 
-Polls is a Django app to conduct Web-based polls. For each question,
-visitors can choose between a fixed number of answers.
 
-Detailed documentation is in the "docs" directory.
+Django Volt is a django admin customization for https://github.com/themesberg/volt-bootstrap-5-dashboard
+
 
 Quick start
 -----------
