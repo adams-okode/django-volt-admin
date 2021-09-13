@@ -1,6 +1,11 @@
 # Django Volt Admin
 Django Volt is a django admin customization for https://github.com/themesberg/volt-bootstrap-5-dashboard
 
+Samples
+----------
+![alt text](./docs/login.png)
+
+![alt text](./docs/dashboard.png)
 
 Quick start
 -----------
@@ -13,8 +18,7 @@ Quick start
     ]
     ```
 
-
-2. Include Templaates from the volt admin customization
+2. Include Templates from the volt admin customization
     ```python
     TEMPLATES = [
         {
