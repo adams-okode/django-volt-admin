@@ -19,6 +19,7 @@ from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
 from django.utils.translation import gettext as _
+from volt.configs import VOLT_ADMIN_SIDEBAR_ICONS
 
 register = Library()
 
@@ -43,7 +44,7 @@ def paginator_number(cl, i):
     if i == ELLIPSIS:
         return format_html('<li class="page-item disabled"><a class="page-link active">{}</a></li>', ELLIPSIS)
     elif i == cl.page_num:
-        return format_html('<li class="page-item active"><a href="#" class="page-link active">{}</a></li>', i + 1)
+        return format_html('<li class="page-item active"><a href="#" class="page-link active">{}</a></li>', i)
     else:
         return format_html(
             '<li class="page-item {}"><a href="{}" class="page-link">{}</a></li>',
@@ -51,5 +52,13 @@ def paginator_number(cl, i):
             cl.get_query_string({
                 PAGE_VAR: i
             }),
-            i + 1
+            i
         )
+
+@register.simple_tag
+def icon_generator(app):
+    try:
+        return VOLT_ADMIN_SIDEBAR_ICONS[app['app_label']]
+    except (AttributeError, KeyError):
+        pass
+    return f'solid'

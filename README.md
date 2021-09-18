@@ -6,7 +6,6 @@ Samples
 ![alt text](https://raw.githubusercontent.com/adams-okode/django-volt-admin/main/docs/login.png)
 
 ![alt text](https://raw.githubusercontent.com/adams-okode/django-volt-admin/main/docs/dashboard.png)
-
 Quick start
 -----------
 1. Install 
