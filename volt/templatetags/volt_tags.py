@@ -39,20 +39,19 @@ def paginator_number(cl, i):
     """
     Generate an individual page index link in a paginated list.
     """
-    # print(i, cl.paginator.num_pages)
     ELLIPSIS = _('…')
     if i == ELLIPSIS:
         return format_html('<li class="page-item disabled"><a class="page-link active">{}</a></li>', ELLIPSIS)
     elif i == cl.page_num:
-        return format_html('<li class="page-item active"><a href="#" class="page-link active">{}</a></li>', i)
+        return format_html('<li class="page-item active"><a href="#" class="page-link active">{}</a></li>', str(i))
     else:
         return format_html(
             '<li class="page-item {}"><a href="{}" class="page-link">{}</a></li>',
             mark_safe('disabled' if i == cl.paginator.num_pages else ''),
             cl.get_query_string({
-                PAGE_VAR: i
+                'page': i
             }),
-            i
+            str(i)
         )
 
 @register.simple_tag
