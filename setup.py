@@ -18,7 +18,7 @@ extras_require['dev'] = (
 
 setup(
     name='django-volt-admin',
-    version='1.0.2',
+    version='1.0.3',
     description='Django admin implementation of volt admin dashboard',
     long_description=open('README.md', 'r', encoding='utf-8').read(),
     long_description_content_type="text/markdown",
